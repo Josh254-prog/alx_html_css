@@ -1,0 +1,670 @@
+body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #000; /* Dark background for the overall page */
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #222;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Container for consistent padding */
+        .container {
+            max-width: 1200px; /* Adjusted for the screenshot's content width */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Header/Navigation Bar */
+        header {
+            position: absolute; /* Position over the hero image */
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            z-index: 10;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem; /* Specific padding for header content */
+        }
+
+        header .logo img {
+            height: 2rem; /* Adjust height as needed for logo */
+            width: auto;
+        }
+
+        header .nav-links {
+            display: none; /* Hidden on mobile */
+            gap: 2rem;
+        }
+
+        header .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        header .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        header .mobile-menu-button {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: block; /* Show on mobile */
+        }
+
+        header .mobile-menu-button svg {
+            width: 1.8rem;
+            height: 1.8rem;
+        }
+
+        /* Media queries for Header */
+        @media (min-width: 768px) { /* md breakpoint */
+            header .nav-links {
+                display: flex; /* Show on larger screens */
+            }
+            header .mobile-menu-button {
+                display: none; /* Hide on larger screens */
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            display: flex; /* Make it a flex container */
+            flex-direction: column; /* Stack children vertically */
+            justify-content: space-between; /* Pushes top and bottom content apart */
+            align-items: center; /* Center horizontally */
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            padding-top: 2rem; /* Padding for the top of the hero section */
+            padding-bottom: 2rem; /* Padding for the bottom of the hero section */
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('CSS Advanced/Object.png');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%); /* Apply grayscale filter */
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+            z-index: 2;
+        }
+
+        .hero-top-content { /* New class for the top part of the hero */
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            padding: 1rem;
+            /* Flexbox will handle vertical positioning */
+        }
+
+        .hero-top-content h1 {
+            font-size: 3.5rem; /* Large heading */
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-top-content .keywords {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .hero-top-content .register-button {
+            background-color: #9333ea; /* Purple from prototype */
+            color: #fff;
+            font-weight: 700;
+            padding: 0.8rem 2.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 3rem; /* Space before 'Learn from the pros' */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+        }
+
+        .hero-top-content .register-button:hover {
+            background-color: #a755f7;
+            transform: translateY(-2px);
+        }
+
+        .hero-bottom-content { /* New class for the bottom part of the hero */
+            position: relative;
+            z-index: 3;
+            width: 100%; /* Ensures the content takes full width for its container */
+            /* Flexbox will handle vertical positioning */
+        }
+
+        .hero-bottom-content .learn-pros {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #9333ea; /* Purple from prototype */
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem; /* Space between text and cards */
+        }
+
+        /* Media queries for Hero Section */
+        @media (min-width: 768px) {
+            .hero-top-content h1 {
+                font-size: 5rem; /* Larger on desktop */
+            }
+            .hero-top-content .keywords {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Pros Section (now nested in hero-bottom-content) */
+        .pros-section {
+            /* Removed absolute positioning, background, and z-index as they are handled by hero-section and hero-bottom-content */
+            padding-top: 0; /* Padding handled by hero-bottom-content */
+            padding-bottom: 0; /* Padding handled by hero-bottom-content */
+        }
+
+        .pros-grid {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center;
+            gap: 2rem;
+            padding-top: 0; /* Removed this as learn-pros is now above it */
+        }
+
+        .pro-card {
+            text-align: center;
+            flex: 0 0 auto; /* Don't grow, don't shrink, base on content */
+            width: 150px; /* Fixed width for each card */
+        }
+
+        .pro-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff; /* White border as in prototype */
+            margin-bottom: 0.8rem;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .pro-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: #fff;
+        }
+
+        .pro-card p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.3;
+        }
+
+        /* Media queries for Pros Section */
+        @media (min-width: 768px) {
+            .pros-grid {
+                gap: 3rem; /* More space on larger screens */
+            }
+            .pro-card {
+                width: 180px; /* Slightly larger cards */
+            }
+            .pro-card img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .pros-grid {
+                gap: 4rem; /* Even more space on large desktops */
+            }
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background-color: #8E24AA; /* Purple background from the image */
+            padding: 4rem 1rem; /* Adjust padding as seen in the image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: left; /* Text alignment within the section */
+        }
+
+        .quote-content {
+            display: flex;
+            flex-direction: column; /* Stack image and text vertically on small screens */
+            align-items: center; /* Center items on small screens */
+            max-width: 900px; /* Limit content width */
+            width: 100%;
+        }
+
+        .quote-content img {
+            width: 120px; /* Size of the circular image */
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff; /* White border */
+            margin-bottom: 1.5rem; /* Space below image */
+        }
+
+        .quote-text-container {
+            flex-grow: 1; /* Allows text to take available space */
+        }
+
+        .quote-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-weight: 300; /* Lighter font weight for the quote */
+        }
+
+        .quote-author-name {
+            font-size: 1.1rem;
+            font-weight: 700; /* Bold for name */
+            margin-bottom: 0.2rem;
+        }
+
+        .quote-author-title {
+            font-size: 0.9rem;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        /* Media queries for Quote Section */
+        @media (min-width: 768px) {
+            .quote-content {
+                flex-direction: row; /* Image and text side-by-side on larger screens */
+                align-items: flex-start; /* Align items to the top */
+                gap: 3rem; /* Space between image and text */
+            }
+            .quote-content img {
+                margin-bottom: 0; /* Remove bottom margin when side-by-side */
+            }
+            .quote-text {
+                font-size: 1.4rem; /* Larger font for quote on desktop */
+            }
+        }
+
+        /* Videos List Section */
+        .videos-section {
+            background-color: #fff; /* White background */
+            padding: 4rem 1rem; /* Padding for the section */
+            color: #000; /* Black text for this section */
+            text-align: center;
+        }
+
+        .videos-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #000;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on small screens */
+            gap: 2rem; /* Gap between video cards */
+            justify-content: center;
+        }
+
+        .video-card {
+            background-color: #fff;
+            border-radius: 0.5rem;
+            overflow: hidden; /* Ensures image corners are rounded */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Text within card is left-aligned */
+            max-width: 300px; /* Limit card width */
+            margin: 0 auto; /* Center cards on small screens */
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 180px; /* Fixed height for thumbnails */
+            background-color: #eee; /* Placeholder background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the area without distortion */
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(147, 51, 234, 0.8); /* Purple, semi-transparent */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .play-button:hover {
+            background-color: #9333ea; /* Solid purple on hover */
+        }
+
+        .play-button svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff; /* White play icon */
+        }
+
+        .video-info {
+            padding: 1rem;
+        }
+
+        .video-info h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #000; /* Black text */
+        }
+
+        .video-info p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .video-author-details {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-author-details img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 0.5rem;
+        }
+
+        .video-author-details span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #000;
+        }
+
+        .video-rating-duration {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .stars {
+            color: #9333ea; /* Purple for stars */
+            font-size: 1rem;
+        }
+
+        /* Media queries for Videos List Section */
+        @media (min-width: 640px) { /* sm breakpoint */
+            .videos-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on small tablets */
+            }
+        }
+
+        @media (min-width: 768px) { /* md breakpoint */
+            .videos-grid {
+                grid-template-columns: repeat(3, 1fr); /* Three columns on larger tablets */
+            }
+        }
+
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .videos-grid {
+                grid-template-columns: repeat(4, 1fr); /* Four columns on desktop */
+            }
+        }
+
+        /* Membership Section */
+        .membership-section {
+            background-color: #28203D; /* Dark purple/blue background from the image */
+            padding: 4rem 1rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        .membership-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #9333ea; /* Purple for the heading */
+        }
+
+        .membership-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on small screens */
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 3rem; /* Space before the button */
+        }
+
+        .membership-card {
+            background-color: transparent; /* No background for individual cards */
+            text-align: center;
+            max-width: 250px; /* Limit card width */
+            margin: 0 auto; /* Center cards */
+        }
+
+        .membership-card .smiley-icon {
+            width: 60px; /* Size of the smiley icon */
+            height: 60px;
+            margin: 0 auto 1.5rem auto; /* Center and add space below */
+            color: #9333ea; /* Purple color for the smiley */
+            /* Using SVG for the smiley to easily control color */
+        }
+
+        .membership-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .membership-card p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .membership-section .register-button {
+            background-color: #9333ea; /* Purple from prototype */
+            color: #fff;
+            font-weight: 700;
+            padding: 0.8rem 2.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+        }
+
+        .membership-section .register-button:hover {
+            background-color: #a755f7;
+            transform: translateY(-2px);
+        }
+
+        /* Media queries for Membership Section */
+        @media (min-width: 640px) { /* sm breakpoint */
+            .membership-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on small tablets */
+            }
+        }
+
+        @media (min-width: 768px) { /* md breakpoint */
+            .membership-grid {
+                grid-template-columns: repeat(4, 1fr); /* Four columns on larger tablets/desktop */
+            }
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #fff; /* White background */
+            padding: 4rem 1rem;
+            color: #000; /* Black text */
+            text-align: center;
+        }
+
+        .faq-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #000;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on small screens */
+            gap: 2rem;
+            text-align: left; /* Align text within FAQ items to the left */
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Media queries for FAQ Section */
+        @media (min-width: 768px) { /* md breakpoint */
+            .faq-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #191928; /* Dark blue/black from the image */
+            padding: 3rem 1rem; /* Adjust padding as seen in the image */
+            color: #fff;
+            text-align: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        footer .footer-content {
+            display: flex;
+            flex-direction: column; /* Stack vertically on small screens */
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer .footer-logo img {
+            height: 2rem; /* Adjust height as needed for logo */
+            width: auto;
+            margin-bottom: 1.5rem; /* Space below logo on small screens */
+        }
+
+        footer .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem; /* Space below icons on small screens */
+        }
+
+        footer .social-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            color: #000; /* Black icon color */
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        footer .social-icon:hover {
+            background-color: #eee;
+        }
+
+        footer .copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Media queries for Footer */
+        @media (min-width: 768px) {
+            footer .footer-content {
+                flex-direction: row; /* Side-by-side on larger screens */
+                padding: 0 2rem; /* Match header padding */
+            }
+            footer .footer-logo img {
+                margin-bottom: 0;
+            }
+            footer .social-icons {
+                margin-bottom: 0;
+            }
+        }
