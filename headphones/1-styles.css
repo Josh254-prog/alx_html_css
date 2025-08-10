@@ -1,0 +1,156 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+    --primary-color: #f75d59;
+    --text-color: #ffffff;
+    --background-color: #1a232f;
+    --font-family: 'Source Sans Pro', sans-serif;
+    --padding-container: 20px 40px;
+}
+
+/* General Styling */
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--padding-container);
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('headphone.png') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+/* Header */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-container);
+}
+
+.logo {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.logo .icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+/* Hero Content */
+.hero-content {
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Bottom Text */
+.bottom-text {
+    width: 100%;
+    padding: var(--padding-container);
+    max-width: 800px;
+}
+
+/* What We Do Section */
+.what-we-do {
+    background-color: #f7f7f7;
+    color: #333;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.what-we-do h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.what-we-do .description {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.8;
+}
+
+.services {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    flex-basis: 250px;
+}
+
+.service-item i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 0.9rem;
+}
